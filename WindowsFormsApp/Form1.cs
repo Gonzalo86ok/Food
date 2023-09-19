@@ -10,26 +10,56 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp
 {
-    public partial class Form1 : Form
+    public partial class frmPrincipal : Form
     {
-        public Form1()
+        public frmPrincipal()
         {
             InitializeComponent();
         }
 
-        private void btHome_Click(object sender, EventArgs e)
+        private void queComemosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach(var item in Application.OpenForms)
+            {
+                if(item.GetType() == typeof(QueComemos))
+                {
+                    return;
+                }
+            }
 
+            QueComemos ventana = new QueComemos();
+            ventana.MdiParent = this;
+            ventana.Show();
         }
 
-        private void btTakeWay_Click(object sender, EventArgs e)
+        private void dondePedimosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(DondePedimos))
+                {
+                    return;
+                }
+            }
 
+            DondePedimos ventana = new DondePedimos();
+            ventana.MdiParent = this;
+            ventana.Show();
         }
 
-        private void btOutSide_Click(object sender, EventArgs e)
+        private void dondeComemosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(DondeComemos))
+                {
+                    return;
+                }
+            }
 
+            DondeComemos ventana = new DondeComemos();
+            ventana.MdiParent = this;
+            ventana.Show();
         }
     }
 }

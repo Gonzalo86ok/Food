@@ -1,4 +1,5 @@
-﻿using System;
+﻿using negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,17 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp
 {
-    public partial class WhatDoWeEat : Form
+    public partial class QueComemos : Form
     {
-        public WhatDoWeEat()
+        public QueComemos()
         {
             InitializeComponent();
+        }
+
+        private void QueComemos_Load(object sender, EventArgs e)
+        {
+            Negocio negocio = new Negocio();
+            dgvQueComemos.DataSource = negocio.listarHome();
         }
     }
 }

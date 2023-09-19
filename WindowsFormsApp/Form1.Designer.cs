@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp
 {
-    partial class Form1
+    partial class frmPrincipal
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,61 +28,82 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btHome = new System.Windows.Forms.Button();
-            this.btTakeWay = new System.Windows.Forms.Button();
-            this.btOutSide = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.queComemosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dondePedimosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dondeComemosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btHome
+            // menuStrip1
             // 
-            this.btHome.Location = new System.Drawing.Point(124, 173);
-            this.btHome.Name = "btHome";
-            this.btHome.Size = new System.Drawing.Size(98, 61);
-            this.btHome.TabIndex = 0;
-            this.btHome.Text = "What do we eat?";
-            this.btHome.UseVisualStyleBackColor = true;
-            this.btHome.Click += new System.EventHandler(this.btHome_Click);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.abrirToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // btTakeWay
+            // abrirToolStripMenuItem
             // 
-            this.btTakeWay.Location = new System.Drawing.Point(324, 173);
-            this.btTakeWay.Name = "btTakeWay";
-            this.btTakeWay.Size = new System.Drawing.Size(97, 61);
-            this.btTakeWay.TabIndex = 1;
-            this.btTakeWay.Text = "Where are we buying?";
-            this.btTakeWay.UseCompatibleTextRendering = true;
-            this.btTakeWay.UseVisualStyleBackColor = true;
-            this.btTakeWay.Click += new System.EventHandler(this.btTakeWay_Click);
+            this.abrirToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.queComemosToolStripMenuItem,
+            this.dondePedimosToolStripMenuItem,
+            this.dondeComemosToolStripMenuItem});
+            this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
+            this.abrirToolStripMenuItem.Text = "Abrir";
             // 
-            // btOutSide
+            // queComemosToolStripMenuItem
             // 
-            this.btOutSide.Location = new System.Drawing.Point(529, 173);
-            this.btOutSide.Name = "btOutSide";
-            this.btOutSide.Size = new System.Drawing.Size(87, 61);
-            this.btOutSide.TabIndex = 2;
-            this.btOutSide.Text = "Where are we eating?";
-            this.btOutSide.UseVisualStyleBackColor = true;
-            this.btOutSide.Click += new System.EventHandler(this.btOutSide_Click);
+            this.queComemosToolStripMenuItem.Name = "queComemosToolStripMenuItem";
+            this.queComemosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.queComemosToolStripMenuItem.Text = "Que Comemos?";
+            this.queComemosToolStripMenuItem.Click += new System.EventHandler(this.queComemosToolStripMenuItem_Click);
             // 
-            // Form1
+            // dondePedimosToolStripMenuItem
+            // 
+            this.dondePedimosToolStripMenuItem.Name = "dondePedimosToolStripMenuItem";
+            this.dondePedimosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dondePedimosToolStripMenuItem.Text = "Donde Pedimos?";
+            this.dondePedimosToolStripMenuItem.Click += new System.EventHandler(this.dondePedimosToolStripMenuItem_Click);
+            // 
+            // dondeComemosToolStripMenuItem
+            // 
+            this.dondeComemosToolStripMenuItem.Name = "dondeComemosToolStripMenuItem";
+            this.dondeComemosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dondeComemosToolStripMenuItem.Text = "Donde Comemos?";
+            this.dondeComemosToolStripMenuItem.Click += new System.EventHandler(this.dondeComemosToolStripMenuItem_Click);
+            // 
+            // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btOutSide);
-            this.Controls.Add(this.btTakeWay);
-            this.Controls.Add(this.btHome);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "frmPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Principal";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btHome;
-        private System.Windows.Forms.Button btTakeWay;
-        private System.Windows.Forms.Button btOutSide;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem queComemosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dondePedimosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dondeComemosToolStripMenuItem;
     }
 }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace dominio
 {
-    public class TakeWay : Food
+    public class OutSide : Food
     {
         public string name { get; set; }
         public string adress { get; set; }

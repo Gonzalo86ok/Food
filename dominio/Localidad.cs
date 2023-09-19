@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace dominio
 {
-    public class Food
+    public class Localidad
     {
         public int id { get; set; }
-        public Imagen imagen { get; set; }
-        public string descripcion { get; set; }
-        public Categoria categoria { get; set; }
-
+        public string name { get; set; }
     }
 }
