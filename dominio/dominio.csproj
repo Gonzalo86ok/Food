@@ -47,7 +47,6 @@
     <Compile Include="Localidad.cs" />
     <Compile Include="OutSide.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TakeWay.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

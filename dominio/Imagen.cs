@@ -10,5 +10,6 @@ namespace dominio
     {
         public int id { get; set; }
         public string name { get; set; }
+        public int Id_Food { get; set; }
     }
 }
