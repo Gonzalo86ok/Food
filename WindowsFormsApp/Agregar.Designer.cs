@@ -42,24 +42,26 @@
             this.cbCategoria = new System.Windows.Forms.ComboBox();
             this.lbImagen = new System.Windows.Forms.Label();
             this.txtbImagen = new System.Windows.Forms.TextBox();
+            this.pbAgregarImagen = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAgregarImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(75, 345);
+            this.btnAgregar.Location = new System.Drawing.Point(70, 270);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 0;
+            this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(261, 345);
+            this.BtnCancelar.Location = new System.Drawing.Point(164, 270);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.BtnCancelar.TabIndex = 1;
+            this.BtnCancelar.TabIndex = 7;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -67,7 +69,7 @@
             // lbNombre
             // 
             this.lbNombre.AutoSize = true;
-            this.lbNombre.Location = new System.Drawing.Point(84, 74);
+            this.lbNombre.Location = new System.Drawing.Point(53, 59);
             this.lbNombre.Name = "lbNombre";
             this.lbNombre.Size = new System.Drawing.Size(59, 16);
             this.lbNombre.TabIndex = 2;
@@ -76,7 +78,7 @@
             // lbDireccion
             // 
             this.lbDireccion.AutoSize = true;
-            this.lbDireccion.Location = new System.Drawing.Point(63, 121);
+            this.lbDireccion.Location = new System.Drawing.Point(45, 94);
             this.lbDireccion.Name = "lbDireccion";
             this.lbDireccion.Size = new System.Drawing.Size(67, 16);
             this.lbDireccion.TabIndex = 3;
@@ -85,7 +87,7 @@
             // lbLocalidad
             // 
             this.lbLocalidad.AutoSize = true;
-            this.lbLocalidad.Location = new System.Drawing.Point(62, 173);
+            this.lbLocalidad.Location = new System.Drawing.Point(42, 128);
             this.lbLocalidad.Name = "lbLocalidad";
             this.lbLocalidad.Size = new System.Drawing.Size(70, 16);
             this.lbLocalidad.TabIndex = 4;
@@ -94,81 +96,92 @@
             // lbDescripcion
             // 
             this.lbDescripcion.AutoSize = true;
-            this.lbDescripcion.Location = new System.Drawing.Point(63, 223);
+            this.lbDescripcion.Location = new System.Drawing.Point(30, 159);
             this.lbDescripcion.Name = "lbDescripcion";
-            this.lbDescripcion.Size = new System.Drawing.Size(103, 20);
+            this.lbDescripcion.Size = new System.Drawing.Size(82, 16);
             this.lbDescripcion.TabIndex = 5;
             this.lbDescripcion.Text = "Descripcion:";
             // 
             // lbCategoria
             // 
             this.lbCategoria.AutoSize = true;
-            this.lbCategoria.Location = new System.Drawing.Point(72, 273);
+            this.lbCategoria.Location = new System.Drawing.Point(43, 193);
             this.lbCategoria.Name = "lbCategoria";
-            this.lbCategoria.Size = new System.Drawing.Size(86, 20);
+            this.lbCategoria.Size = new System.Drawing.Size(69, 16);
             this.lbCategoria.TabIndex = 6;
             this.lbCategoria.Text = "Categoria:";
             // 
             // txtbNombre
             // 
-            this.txtbNombre.Location = new System.Drawing.Point(167, 71);
+            this.txtbNombre.Location = new System.Drawing.Point(118, 56);
             this.txtbNombre.Name = "txtbNombre";
             this.txtbNombre.Size = new System.Drawing.Size(121, 22);
-            this.txtbNombre.TabIndex = 7;
+            this.txtbNombre.TabIndex = 0;
             // 
             // txtbDireccion
             // 
-            this.txtbDireccion.Location = new System.Drawing.Point(167, 121);
+            this.txtbDireccion.Location = new System.Drawing.Point(118, 91);
             this.txtbDireccion.Name = "txtbDireccion";
             this.txtbDireccion.Size = new System.Drawing.Size(121, 22);
-            this.txtbDireccion.TabIndex = 8;
+            this.txtbDireccion.TabIndex = 1;
             // 
             // txtbDescripcion
             // 
-            this.txtbDescripcion.Location = new System.Drawing.Point(167, 220);
+            this.txtbDescripcion.Location = new System.Drawing.Point(118, 156);
             this.txtbDescripcion.Name = "txtbDescripcion";
             this.txtbDescripcion.Size = new System.Drawing.Size(121, 22);
-            this.txtbDescripcion.TabIndex = 9;
+            this.txtbDescripcion.TabIndex = 3;
             // 
             // cbLocalidad
             // 
             this.cbLocalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLocalidad.FormattingEnabled = true;
-            this.cbLocalidad.Location = new System.Drawing.Point(167, 169);
+            this.cbLocalidad.Location = new System.Drawing.Point(118, 125);
             this.cbLocalidad.Name = "cbLocalidad";
             this.cbLocalidad.Size = new System.Drawing.Size(121, 24);
-            this.cbLocalidad.TabIndex = 10;
+            this.cbLocalidad.TabIndex = 2;
             // 
             // cbCategoria
             // 
             this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Location = new System.Drawing.Point(167, 269);
+            this.cbCategoria.Location = new System.Drawing.Point(118, 190);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(121, 24);
-            this.cbCategoria.TabIndex = 11;
+            this.cbCategoria.TabIndex = 4;
             // 
             // lbImagen
             // 
             this.lbImagen.AutoSize = true;
-            this.lbImagen.Location = new System.Drawing.Point(88, 307);
+            this.lbImagen.Location = new System.Drawing.Point(57, 227);
             this.lbImagen.Name = "lbImagen";
-            this.lbImagen.Size = new System.Drawing.Size(69, 20);
+            this.lbImagen.Size = new System.Drawing.Size(55, 16);
             this.lbImagen.TabIndex = 12;
             this.lbImagen.Text = "Imagen:";
             // 
             // txtbImagen
             // 
-            this.txtbImagen.Location = new System.Drawing.Point(167, 307);
+            this.txtbImagen.Location = new System.Drawing.Point(118, 224);
             this.txtbImagen.Name = "txtbImagen";
             this.txtbImagen.Size = new System.Drawing.Size(121, 22);
-            this.txtbImagen.TabIndex = 13;
+            this.txtbImagen.TabIndex = 5;
+            this.txtbImagen.Leave += new System.EventHandler(this.txtbImagen_Leave);
+            // 
+            // pbAgregarImagen
+            // 
+            this.pbAgregarImagen.Location = new System.Drawing.Point(270, 55);
+            this.pbAgregarImagen.Name = "pbAgregarImagen";
+            this.pbAgregarImagen.Size = new System.Drawing.Size(285, 237);
+            this.pbAgregarImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAgregarImagen.TabIndex = 14;
+            this.pbAgregarImagen.TabStop = false;
             // 
             // Agregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 491);
+            this.ClientSize = new System.Drawing.Size(578, 331);
+            this.Controls.Add(this.pbAgregarImagen);
             this.Controls.Add(this.txtbImagen);
             this.Controls.Add(this.lbImagen);
             this.Controls.Add(this.cbCategoria);
@@ -187,6 +200,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar";
             this.Load += new System.EventHandler(this.Agregar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbAgregarImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +222,6 @@
         private System.Windows.Forms.ComboBox cbCategoria;
         private System.Windows.Forms.Label lbImagen;
         private System.Windows.Forms.TextBox txtbImagen;
+        private System.Windows.Forms.PictureBox pbAgregarImagen;
     }
 }

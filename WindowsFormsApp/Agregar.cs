@@ -23,19 +23,31 @@ namespace WindowsFormsApp
         {
             OutSide cena = new OutSide();
             Negocio negocio = new Negocio();
+            Imagen imagen = new Imagen();
             try
             {
-                cena.name = (txtbNombre.Text);
-                cena.adress = (txtbDireccion.Text);
-                cena.localidad = (Localidad)cbLocalidad.SelectedItem;
-                cena.descripcion = (txtbDescripcion.Text);
-                cena.categoria = (Categoria)cbCategoria.SelectedItem;
-                cena.imagen.name = (txtbImagen.Text);               
+                if (string.IsNullOrEmpty(txtbNombre.Text) ||
+                    string.IsNullOrEmpty(txtbDireccion.Text) ||
+                    string.IsNullOrEmpty(txtbDescripcion.Text) ||
+                    string.IsNullOrEmpty(txtbImagen.Text))
+                {
+                    MessageBox.Show("Hay campos sin completar");
+                }
+                else
+                {
+                    cena.name = (txtbNombre.Text);
+                    cena.adress = (txtbDireccion.Text);
+                    cena.localidad = (Localidad)cbLocalidad.SelectedItem;
+                    cena.descripcion = (txtbDescripcion.Text);
+                    cena.categoria = (Categoria)cbCategoria.SelectedItem;
+                    negocio.addOut(cena);
 
-                negocio.addOut(cena);
-                MessageBox.Show("Agregado exitosamente");
-                Close();
-
+                    imagen.Id_Food = negocio.UltimoRegistro();
+                    imagen.name = (txtbImagen.Text);
+                    negocio.addImagen(imagen);
+                    MessageBox.Show("Agregado exitosamente");
+                }
+                    Close();
             }
             catch (Exception ex)
             {
@@ -53,14 +65,35 @@ namespace WindowsFormsApp
         {
             Negocio negocio = new Negocio();
             try
-            {
-                cbCategoria.DataSource = negocio.listarOutSide(1);
-                cbLocalidad.DataSource = negocio.listarOutSide(1);
+            {             
+                cbLocalidad.DataSource = negocio.listarLocalidad();
+                cbLocalidad.ValueMember = "id";
+                cbLocalidad.DisplayMember = "descripcion";
+
+                cbCategoria.DataSource = negocio.listarCategoria();
+                cbCategoria.ValueMember = "id";
+                cbCategoria.DisplayMember = "nombre";
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void txtbImagen_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(txtbImagen.Text);
+        }
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbAgregarImagen.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pbAgregarImagen.Load("https://i.stack.imgur.com/y9DpT.jpg");
             }
         }
     }

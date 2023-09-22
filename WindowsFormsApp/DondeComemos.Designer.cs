@@ -42,10 +42,13 @@
             // dgvDondeComemos
             // 
             this.dgvDondeComemos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDondeComemos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvDondeComemos.Location = new System.Drawing.Point(12, 69);
+            this.dgvDondeComemos.MultiSelect = false;
             this.dgvDondeComemos.Name = "dgvDondeComemos";
             this.dgvDondeComemos.RowHeadersWidth = 51;
             this.dgvDondeComemos.RowTemplate.Height = 24;
+            this.dgvDondeComemos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDondeComemos.Size = new System.Drawing.Size(830, 267);
             this.dgvDondeComemos.TabIndex = 0;
             this.dgvDondeComemos.SelectionChanged += new System.EventHandler(this.dgvDondeComemos_SelectionChanged);
@@ -68,6 +71,7 @@
             this.btModificar.TabIndex = 2;
             this.btModificar.Text = "Modificar";
             this.btModificar.UseVisualStyleBackColor = true;
+            this.btModificar.Click += new System.EventHandler(this.btModificar_Click);
             // 
             // btEliminar
             // 

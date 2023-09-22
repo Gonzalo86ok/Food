@@ -21,7 +21,7 @@ namespace WindowsFormsApp
         private void DondePedimos_Load(object sender, EventArgs e)
         {
             Negocio negocio = new Negocio();
-            dgvDondePedimos.DataSource = negocio.listarOutSide(0);
+            dgvDondePedimos.DataSource = negocio.listarOutSide();
         }
     }
 }

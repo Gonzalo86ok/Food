@@ -9,10 +9,10 @@ namespace dominio
     public class Localidad
     {
         public int id { get; set; }
-        public string name { get; set; }
+        public string descripcion { get; set; }
         public override string ToString()
         {
-            return name;
+            return descripcion;
         }
     }
 }

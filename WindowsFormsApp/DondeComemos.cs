@@ -19,23 +19,24 @@ namespace WindowsFormsApp
         {
             InitializeComponent();
         }
-
         private void DondeComemos_Load(object sender, EventArgs e)
         {
+            cargar();
+        }
+        private void cargar()
+        {
             Negocio negocio = new Negocio();
-            listaOut = negocio.listarOutSide(1);
+            listaOut = negocio.listarOutSide();
             dgvDondeComemos.DataSource = listaOut;
             dgvDondeComemos.Columns["Outside"].Visible = false;
             dgvDondeComemos.Columns["id"].Visible = false;
             dgvDondeComemos.Columns["imagen"].Visible = false;
             cargarImagen(listaOut[0].imagen.name);
         }
-
         private void btCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void dgvDondeComemos_SelectionChanged(object sender, EventArgs e)
         {
             OutSide seleccionado =  (OutSide)dgvDondeComemos.CurrentRow.DataBoundItem;
@@ -52,11 +53,15 @@ namespace WindowsFormsApp
                 pbImagen.Load("https://i.stack.imgur.com/y9DpT.jpg");
             }
         }
-
         private void btAgregar_Click(object sender, EventArgs e)
         {
             Agregar alta = new Agregar();
             alta.ShowDialog();
+            cargar();
+        }
+        private void btModificar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
