@@ -169,7 +169,7 @@
             // 
             // pbAgregarImagen
             // 
-            this.pbAgregarImagen.Location = new System.Drawing.Point(270, 55);
+            this.pbAgregarImagen.Location = new System.Drawing.Point(265, 56);
             this.pbAgregarImagen.Name = "pbAgregarImagen";
             this.pbAgregarImagen.Size = new System.Drawing.Size(285, 237);
             this.pbAgregarImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -180,7 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 331);
+            this.ClientSize = new System.Drawing.Size(601, 331);
             this.Controls.Add(this.pbAgregarImagen);
             this.Controls.Add(this.txtbImagen);
             this.Controls.Add(this.lbImagen);

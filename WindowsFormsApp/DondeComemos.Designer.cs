@@ -57,7 +57,7 @@
             // 
             this.btAgregar.Location = new System.Drawing.Point(12, 370);
             this.btAgregar.Name = "btAgregar";
-            this.btAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btAgregar.Size = new System.Drawing.Size(74, 31);
             this.btAgregar.TabIndex = 1;
             this.btAgregar.Text = "Agregar";
             this.btAgregar.UseVisualStyleBackColor = true;
@@ -65,9 +65,9 @@
             // 
             // btModificar
             // 
-            this.btModificar.Location = new System.Drawing.Point(187, 370);
+            this.btModificar.Location = new System.Drawing.Point(109, 370);
             this.btModificar.Name = "btModificar";
-            this.btModificar.Size = new System.Drawing.Size(75, 23);
+            this.btModificar.Size = new System.Drawing.Size(79, 31);
             this.btModificar.TabIndex = 2;
             this.btModificar.Text = "Modificar";
             this.btModificar.UseVisualStyleBackColor = true;
@@ -75,18 +75,19 @@
             // 
             // btEliminar
             // 
-            this.btEliminar.Location = new System.Drawing.Point(555, 370);
+            this.btEliminar.Location = new System.Drawing.Point(322, 370);
             this.btEliminar.Name = "btEliminar";
-            this.btEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btEliminar.Size = new System.Drawing.Size(79, 31);
             this.btEliminar.TabIndex = 3;
             this.btEliminar.Text = "Eliminar";
             this.btEliminar.UseVisualStyleBackColor = true;
+            this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
             // 
             // btCancelar
             // 
-            this.btCancelar.Location = new System.Drawing.Point(767, 370);
+            this.btCancelar.Location = new System.Drawing.Point(431, 370);
             this.btCancelar.Name = "btCancelar";
-            this.btCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btCancelar.Size = new System.Drawing.Size(75, 31);
             this.btCancelar.TabIndex = 4;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
@@ -94,9 +95,9 @@
             // 
             // btDetalle
             // 
-            this.btDetalle.Location = new System.Drawing.Point(363, 370);
+            this.btDetalle.Location = new System.Drawing.Point(215, 370);
             this.btDetalle.Name = "btDetalle";
-            this.btDetalle.Size = new System.Drawing.Size(75, 23);
+            this.btDetalle.Size = new System.Drawing.Size(77, 31);
             this.btDetalle.TabIndex = 5;
             this.btDetalle.Text = "Detalle";
             this.btDetalle.UseVisualStyleBackColor = true;
@@ -114,7 +115,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1281, 456);
+            this.ClientSize = new System.Drawing.Size(1281, 501);
             this.Controls.Add(this.pbImagen);
             this.Controls.Add(this.btDetalle);
             this.Controls.Add(this.btCancelar);

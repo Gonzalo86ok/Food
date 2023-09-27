@@ -16,7 +16,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("select L.ID_Local, L.Nombre, L.Direccion, L.ID_Localidad, L.Descripcion, L.ID_Categoria, Loc.Nombre as Localidad, C.Nombre as Categoria, I.ID_Imagen as ID_Imagen, I.Nombre as Imagen, I.ID_Food as IdFood, L.Afuera as Donde from Locales L left join Localidades Loc on L.ID_Localidad = Loc.ID_Localidad left join Categorias C on L.ID_Categoria = C.ID_Categoria left join Imagenes I on I.ID_Food = L.ID_Local");
+                datos.setearConsulta("select L.ID_Local, L.Nombre, L.Direccion, L.ID_Localidad, L.Descripcion, L.ID_Categoria, Loc.Nombre as Localidad, C.Nombre as Categoria, I.ID_Imagen as ID_Imagen, I.Nombre as Imagen, I.ID_Food as IdFood, L.Afuera as Donde from Locales L inner join Localidades Loc on L.ID_Localidad = Loc.ID_Localidad inner join Categorias C on L.ID_Categoria = C.ID_Categoria inner join Imagenes I on I.ID_Food = L.ID_Local");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
@@ -44,15 +44,12 @@ namespace negocio
                     aux.categoria.nombre = (string)datos.Lector["Categoria"];
 
                     lista.Add(aux);
-
                 }
                 return lista;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
-                
-                
+                Console.WriteLine("Error: " + ex.Message);                             
                 throw;
             }
             finally
@@ -134,6 +131,87 @@ namespace negocio
                 datos.setearConsulta("insert into Imagenes(Nombre, ID_Food)values(@name,@id_food)");
                 datos.setearParametro("@id_food", nuevo.Id_Food);
                 datos.setearParametro("@name", nuevo.name);              
+                datos.ejecutarAcccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void modificar(OutSide local)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("update Locales set Nombre = @nombre , Direccion = @direccion, ID_Localidad = @id_Localidad, Descripcion = @descripcion,ID_Categoria = @id_Categoria where ID_Local = @id");
+                datos.setearParametro("@nombre", local.name);
+                datos.setearParametro("@direccion",local.adress);
+                datos.setearParametro("@id_Localidad",local.localidad.id);
+                datos.setearParametro("@descripcion",local.descripcion);
+                datos.setearParametro("@id_Categoria",local.categoria.id);
+                datos.setearParametro("@id",local.id);
+                datos.ejecutarAcccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void modificarImagen(Imagen imagen)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("update Imagenes set Nombre = @nombre where ID_Imagen = @id and ID_Food = @id_Food");
+                datos.setearParametro("@id", imagen.id);
+                datos.setearParametro("@nombre", imagen.name);
+                datos.setearParametro("@id_Food",imagen.Id_Food);
+                datos.ejecutarAcccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void eliminar(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("delete from Locales where ID_Local = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarAcccion();               
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            { 
+                datos.cerrarConexion();
+            }
+        }
+        public void eliminarImagen(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {               
+                datos.setearConsulta("delete from Imagenes where ID_Food = @id");
+                datos.setearParametro("@id", id);
                 datos.ejecutarAcccion();
             }
             catch (Exception ex)

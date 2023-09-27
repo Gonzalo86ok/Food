@@ -14,14 +14,19 @@ namespace WindowsFormsApp
 {
     public partial class Agregar : Form
     {
+        private OutSide local = null;
         public Agregar()
         {
             InitializeComponent();
         }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
+        public Agregar(OutSide local)
         {
-            OutSide cena = new OutSide();
+            InitializeComponent();
+            this.local = local;
+            Text = "modificar";
+        }
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {           
             Negocio negocio = new Negocio();
             Imagen imagen = new Imagen();
             try
@@ -35,17 +40,34 @@ namespace WindowsFormsApp
                 }
                 else
                 {
-                    cena.name = (txtbNombre.Text);
-                    cena.adress = (txtbDireccion.Text);
-                    cena.localidad = (Localidad)cbLocalidad.SelectedItem;
-                    cena.descripcion = (txtbDescripcion.Text);
-                    cena.categoria = (Categoria)cbCategoria.SelectedItem;
-                    negocio.addOut(cena);
+                    if (local == null)
+                    {
+                        local = new OutSide();
+                    }
+                    local.name = (txtbNombre.Text);
+                    local.adress = (txtbDireccion.Text);
+                    local.localidad = (Localidad)cbLocalidad.SelectedItem;
+                    local.descripcion = (txtbDescripcion.Text);
+                    local.categoria = (Categoria)cbCategoria.SelectedItem;
 
-                    imagen.Id_Food = negocio.UltimoRegistro();
-                    imagen.name = (txtbImagen.Text);
-                    negocio.addImagen(imagen);
-                    MessageBox.Show("Agregado exitosamente");
+                    if(local.id != 0)
+                    {
+                        negocio.modificar(local);
+                        imagen.id = local.imagen.id;
+                        imagen.Id_Food = local.id;
+                        imagen.name = (txtbImagen.Text);
+                        negocio.modificarImagen(imagen);
+                        MessageBox.Show("Modificado exitosamente");
+
+                    }
+                    else 
+                    {
+                        negocio.addOut(local);
+                        imagen.Id_Food = negocio.UltimoRegistro();
+                        imagen.name = (txtbImagen.Text);
+                        negocio.addImagen(imagen);
+                        MessageBox.Show("Agregado exitosamente");
+                    }
                 }
                     Close();
             }
@@ -55,12 +77,10 @@ namespace WindowsFormsApp
                 MessageBox.Show(ex.ToString());
             }
         }
-
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void Agregar_Load(object sender, EventArgs e)
         {
             Negocio negocio = new Negocio();
@@ -73,6 +93,17 @@ namespace WindowsFormsApp
                 cbCategoria.DataSource = negocio.listarCategoria();
                 cbCategoria.ValueMember = "id";
                 cbCategoria.DisplayMember = "nombre";
+
+                if(local != null) 
+                {
+                    txtbNombre.Text = local.name;
+                    txtbDireccion.Text = local.adress;
+                    cbLocalidad.SelectedValue = local.localidad.id;
+                    txtbDescripcion.Text = local.descripcion;
+                    cbCategoria.SelectedValue = local.categoria.id;
+                    txtbImagen.Text = local.imagen.name;
+                    cargarImagen(local.imagen.name);
+                }
             }
             catch (Exception ex)
             {
@@ -80,7 +111,6 @@ namespace WindowsFormsApp
                 MessageBox.Show(ex.ToString());
             }
         }
-
         private void txtbImagen_Leave(object sender, EventArgs e)
         {
             cargarImagen(txtbImagen.Text);

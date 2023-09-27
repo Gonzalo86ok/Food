@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -61,7 +62,33 @@ namespace WindowsFormsApp
         }
         private void btModificar_Click(object sender, EventArgs e)
         {
+            OutSide seleccionado = (OutSide)dgvDondeComemos.CurrentRow.DataBoundItem;
 
+            Agregar modificar = new Agregar(seleccionado);
+            modificar.ShowDialog();
+            cargar();
+        }
+
+        private void btEliminar_Click(object sender, EventArgs e)
+        {
+            Negocio negocio = new Negocio();
+            OutSide seleccionado;
+            try
+            {
+                DialogResult respuesta =  MessageBox.Show("Realment desea eliminar?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (OutSide)dgvDondeComemos.CurrentRow.DataBoundItem;
+                    negocio.eliminarImagen(seleccionado.id);
+                    negocio.eliminar(seleccionado.id);
+                    cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
