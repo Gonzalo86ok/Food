@@ -29,10 +29,14 @@ namespace WindowsFormsApp
             Negocio negocio = new Negocio();
             listaOut = negocio.listarOutSide();
             dgvDondeComemos.DataSource = listaOut;
+            ocultarColumnas();
+            cargarImagen(listaOut[0].imagen.name);
+        }
+        private void ocultarColumnas()
+        {
             dgvDondeComemos.Columns["Outside"].Visible = false;
             dgvDondeComemos.Columns["id"].Visible = false;
             dgvDondeComemos.Columns["imagen"].Visible = false;
-            cargarImagen(listaOut[0].imagen.name);
         }
         private void btCancelar_Click(object sender, EventArgs e)
         {
@@ -40,8 +44,11 @@ namespace WindowsFormsApp
         }
         private void dgvDondeComemos_SelectionChanged(object sender, EventArgs e)
         {
-            OutSide seleccionado =  (OutSide)dgvDondeComemos.CurrentRow.DataBoundItem;
-            cargarImagen(seleccionado.imagen.name);
+            if(dgvDondeComemos.CurrentRow != null)
+            {
+                OutSide seleccionado =  (OutSide)dgvDondeComemos.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.imagen.name);
+            }
         }
         private void cargarImagen(string imagen)
         {
@@ -68,7 +75,6 @@ namespace WindowsFormsApp
             modificar.ShowDialog();
             cargar();
         }
-
         private void btEliminar_Click(object sender, EventArgs e)
         {
             Negocio negocio = new Negocio();
@@ -89,6 +95,28 @@ namespace WindowsFormsApp
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<OutSide> listaFiltrada;
+            string filtro = txtFiltro.Text;
+            if (filtro.Length > 3)
+            {
+                listaFiltrada = listaOut.FindAll(x => x.name.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = listaOut;
+            }
+            dgvDondeComemos.DataSource = null;
+            dgvDondeComemos.DataSource = listaFiltrada;
+            ocultarColumnas();
         }
     }
 }
