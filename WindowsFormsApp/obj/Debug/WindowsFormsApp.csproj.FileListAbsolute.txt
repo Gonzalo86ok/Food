@@ -18,3 +18,4 @@ D:\Users\Gonzalo\Desktop\Proyecto food\Nueva carpeta (3)\Food\WindowsFormsApp\ob
 D:\Users\Gonzalo\Desktop\Proyecto food\Nueva carpeta (3)\Food\WindowsFormsApp\obj\Debug\WindowsFormsApp.QueComemos.resources
 D:\Users\Gonzalo\Desktop\Proyecto food\Nueva carpeta (3)\Food\WindowsFormsApp\obj\Debug\WindowsFormsApp.frmPrincipal.resources
 D:\Users\Gonzalo\Desktop\Proyecto food\Nueva carpeta (3)\Food\WindowsFormsApp\obj\Debug\WindowsFormsApp.Agregar.resources
+D:\Users\Gonzalo\Desktop\Proyecto food\Nueva carpeta (3)\Food\WindowsFormsApp\obj\Debug\WindowsFormsApp.AgregarCook.resources

@@ -22,12 +22,12 @@ namespace WindowsFormsApp
         }
         private void DondeComemos_Load(object sender, EventArgs e)
         {
-            cargar();
+            cargar();         
         }
         private void cargar()
         {
             Negocio negocio = new Negocio();
-            listaOut = negocio.listarOutSide();
+            listaOut = negocio.listarOutSide(1);
             dgvDondeComemos.DataSource = listaOut;
             ocultarColumnas();
             cargarImagen(listaOut[0].imagen.name);
@@ -96,12 +96,6 @@ namespace WindowsFormsApp
                 MessageBox.Show(ex.ToString());
             }
         }
-
-        private void btnFiltro_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
             List<OutSide> listaFiltrada;

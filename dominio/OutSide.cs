@@ -14,6 +14,8 @@ namespace dominio
         public string name { get; set; }
         [DisplayName("Direccion")]
         public string adress { get; set; }
+        [DisplayName("Barrio")]
+        public string barrio { get; set; }
         [DisplayName("Localidad")]
         public Localidad localidad { get; set; }
         [DisplayName("Categoria")]

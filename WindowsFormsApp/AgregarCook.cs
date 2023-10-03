@@ -1,4 +1,5 @@
 ﻿using dominio;
+using negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,32 +9,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using negocio;
 
 namespace WindowsFormsApp
 {
-    public partial class Agregar : Form
+    public partial class AgregarCook : Form
     {
-        private OutSide local = null;
-        public Agregar()
+        private Cooking cocina = null;
+        public AgregarCook()
         {
             InitializeComponent();
         }
-        public Agregar(OutSide local)
+        public AgregarCook(Cooking cocina)
         {
             InitializeComponent();
-            this.local = local;
+            this.cocina = cocina;
             Text = "modificar";
         }
         private void btnAgregar_Click(object sender, EventArgs e)
-        {           
+        {
             Negocio negocio = new Negocio();
             Imagen imagen = new Imagen();
             try
             {
-                if (string.IsNullOrEmpty(txtbNombre.Text) ||
-                    string.IsNullOrEmpty(txtBarrio.Text) ||
-                    string.IsNullOrEmpty(txtbDireccion.Text) ||
+                if (string.IsNullOrEmpty(txtbNombre.Text) ||                   
                     string.IsNullOrEmpty(txtbDescripcion.Text) ||
                     string.IsNullOrEmpty(txtbImagen.Text))
                 {
@@ -41,37 +39,34 @@ namespace WindowsFormsApp
                 }
                 else
                 {
-                    if (local == null)
+                    if (cocina == null)
                     {
-                        local = new OutSide();
+                        cocina = new Cooking();
                     }
-                    local.name = (txtbNombre.Text);
-                    local.adress = (txtbDireccion.Text);
-                    local.barrio = (txtBarrio.Text);
-                    local.localidad = (Localidad)cbLocalidad.SelectedItem;
-                    local.descripcion = (txtbDescripcion.Text);
-                    local.categoria = (Categoria)cbCategoria.SelectedItem;
+                    cocina.nombre = (txtbNombre.Text);
+                    cocina.descripcion = (txtbDescripcion.Text);
+                    cocina.categoria = (Categoria)cbCategoria.SelectedItem;
 
-                    if(local.id != 0)
+                    if (cocina.id != 0)
                     {
-                        negocio.modificar(local);
-                        imagen.id = local.imagen.id;
-                        imagen.Id_Food = local.id;
+                        negocio.modificarCook(cocina);
+                        imagen.id = cocina.imagen.id;
+                        imagen.Id_Food = cocina.id;
                         imagen.name = (txtbImagen.Text);
                         negocio.modificarImagen(imagen);
                         MessageBox.Show("Modificado exitosamente");
 
                     }
-                    else 
+                    else
                     {
-                        negocio.addOut(local);
+                        negocio.addCook(cocina);
                         imagen.Id_Food = negocio.UltimoRegistro();
                         imagen.name = (txtbImagen.Text);
                         negocio.addImagen(imagen);
                         MessageBox.Show("Agregado exitosamente");
                     }
                 }
-                    Close();
+                Close();
             }
             catch (Exception ex)
             {
@@ -83,11 +78,12 @@ namespace WindowsFormsApp
         {
             this.Close();
         }
+        /*
         private void Agregar_Load(object sender, EventArgs e)
         {
             Negocio negocio = new Negocio();
             try
-            {             
+            {
                 cbLocalidad.DataSource = negocio.listarLocalidad();
                 cbLocalidad.ValueMember = "id";
                 cbLocalidad.DisplayMember = "descripcion";
@@ -96,15 +92,13 @@ namespace WindowsFormsApp
                 cbCategoria.ValueMember = "id";
                 cbCategoria.DisplayMember = "nombre";
 
-                if(local != null) 
+                if (cocina != null)
                 {
-                    txtbNombre.Text = local.name;
-                    txtbDireccion.Text = local.adress;
-                    cbLocalidad.SelectedValue = local.localidad.id;
-                    txtbDescripcion.Text = local.descripcion;
-                    cbCategoria.SelectedValue = local.categoria.id;
-                    txtbImagen.Text = local.imagen.name;
-                    cargarImagen(local.imagen.name);
+                    txtbNombre.Text = cocina.nombre;                                 
+                    txtbDescripcion.Text = cocina.descripcion;
+                    cbCategoria.SelectedValue = cocina.categoria.id;
+                    txtbImagen.Text = cocina.imagen.name;
+                    cargarImagen(cocina.imagen.name);
                 }
             }
             catch (Exception ex)
@@ -113,6 +107,7 @@ namespace WindowsFormsApp
                 MessageBox.Show(ex.ToString());
             }
         }
+        */
         private void txtbImagen_Leave(object sender, EventArgs e)
         {
             cargarImagen(txtbImagen.Text);
@@ -130,3 +125,6 @@ namespace WindowsFormsApp
         }
     }
 }
+
+    
+
