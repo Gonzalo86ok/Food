@@ -47,6 +47,7 @@
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(215, 22);
             this.txtFiltro.TabIndex = 24;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // lbFiltroRapido
             // 
@@ -84,6 +85,7 @@
             this.btCancelar.TabIndex = 20;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // btEliminar
             // 
@@ -93,6 +95,7 @@
             this.btEliminar.TabIndex = 19;
             this.btEliminar.Text = "Eliminar";
             this.btEliminar.UseVisualStyleBackColor = true;
+            this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
             // 
             // btModificar
             // 
@@ -102,6 +105,7 @@
             this.btModificar.TabIndex = 18;
             this.btModificar.Text = "Modificar";
             this.btModificar.UseVisualStyleBackColor = true;
+            this.btModificar.Click += new System.EventHandler(this.btModificar_Click);
             // 
             // btAgregar
             // 
@@ -111,6 +115,7 @@
             this.btAgregar.TabIndex = 17;
             this.btAgregar.Text = "Agregar";
             this.btAgregar.UseVisualStyleBackColor = true;
+            this.btAgregar.Click += new System.EventHandler(this.btAgregar_Click);
             // 
             // dgvDondePedimos
             // 
@@ -124,6 +129,7 @@
             this.dgvDondePedimos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDondePedimos.Size = new System.Drawing.Size(736, 307);
             this.dgvDondePedimos.TabIndex = 16;
+            this.dgvDondePedimos.SelectionChanged += new System.EventHandler(this.dgvDondePedimos_SelectionChanged);
             // 
             // DondePedimos
             // 

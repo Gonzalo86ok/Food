@@ -6,7 +6,6 @@ D:\Users\Gonzalo\Desktop\Proyecto food\Nueva carpeta (3)\Food\WindowsFormsApp\bi
 D:\Users\Gonzalo\Desktop\Proyecto food\Nueva carpeta (3)\Food\WindowsFormsApp\bin\Debug\dominio.pdb
 D:\Users\Gonzalo\Desktop\Proyecto food\Nueva carpeta (3)\Food\WindowsFormsApp\bin\Debug\negocio.pdb
 D:\Users\Gonzalo\Desktop\Proyecto food\Nueva carpeta (3)\Food\WindowsFormsApp\obj\Debug\WindowsFormsApp.csproj.AssemblyReference.cache
-D:\Users\Gonzalo\Desktop\Proyecto food\Nueva carpeta (3)\Food\WindowsFormsApp\obj\Debug\WindowsFormsApp.csproj.SuggestedBindingRedirects.cache
 D:\Users\Gonzalo\Desktop\Proyecto food\Nueva carpeta (3)\Food\WindowsFormsApp\obj\Debug\WindowsFormsApp.Properties.Resources.resources
 D:\Users\Gonzalo\Desktop\Proyecto food\Nueva carpeta (3)\Food\WindowsFormsApp\obj\Debug\WindowsFormsApp.csproj.GenerateResource.cache
 D:\Users\Gonzalo\Desktop\Proyecto food\Nueva carpeta (3)\Food\WindowsFormsApp\obj\Debug\WindowsFormsApp.csproj.CoreCompileInputs.cache

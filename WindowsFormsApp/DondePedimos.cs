@@ -19,7 +19,6 @@ namespace WindowsFormsApp
         {
             InitializeComponent();
         }
-
         private void DondePedimos_Load(object sender, EventArgs e)
         {
             cargar();
@@ -37,18 +36,6 @@ namespace WindowsFormsApp
             dgvDondePedimos.Columns["Outside"].Visible = false;
             dgvDondePedimos.Columns["id"].Visible = false;
             dgvDondePedimos.Columns["imagen"].Visible = false;
-        }
-        private void btCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        private void dgvDondeComemos_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvDondePedimos.CurrentRow != null)
-            {
-                OutSide seleccionado = (OutSide)dgvDondePedimos.CurrentRow.DataBoundItem;
-                cargarImagen(seleccionado.imagen.name);
-            }
         }
         private void cargarImagen(string imagen)
         {
@@ -75,6 +62,22 @@ namespace WindowsFormsApp
             modificar.ShowDialog();
             cargar();
         }
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<OutSide> listaFiltrada;
+            string filtro = txtFiltro.Text;
+            if (filtro.Length > 3)
+            {
+                listaFiltrada = listaOut.FindAll(x => x.name.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = listaOut;
+            }
+            dgvDondePedimos.DataSource = null;
+            dgvDondePedimos.DataSource = listaFiltrada;
+            ocultarColumnas();
+        }
         private void btEliminar_Click(object sender, EventArgs e)
         {
             Negocio negocio = new Negocio();
@@ -96,21 +99,17 @@ namespace WindowsFormsApp
                 MessageBox.Show(ex.ToString());
             }
         }
-        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        private void btCancelar_Click(object sender, EventArgs e)
         {
-            List<OutSide> listaFiltrada;
-            string filtro = txtFiltro.Text;
-            if (filtro.Length > 3)
+            this.Close();
+        }
+        private void dgvDondePedimos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvDondePedimos.CurrentRow != null)
             {
-                listaFiltrada = listaOut.FindAll(x => x.name.ToUpper().Contains(filtro.ToUpper()));
+                OutSide seleccionado = (OutSide)dgvDondePedimos.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.imagen.name);
             }
-            else
-            {
-                listaFiltrada = listaOut;
-            }
-            dgvDondePedimos.DataSource = null;
-            dgvDondePedimos.DataSource = listaFiltrada;
-            ocultarColumnas();
         }
     }
 }

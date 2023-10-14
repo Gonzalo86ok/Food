@@ -16,7 +16,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("select L.ID, L.Nombre, L.Direccion, L.ID_Localidad, L.Descripcion, L.ID_Categoria, L.Barrio as Barrio, Loc.Nombre as Localidad, C.Nombre as Categoria, I.ID_Imagen as ID_Imagen, I.Nombre as Imagen, I.ID as IdFood, L.Afuera as Donde from Locales L inner join Localidades Loc on L.ID_Localidad = Loc.ID_Localidad inner join Categorias C on L.ID_Categoria = C.ID_Categoria inner join Imagenes I on I.ID = L.ID\r\n");
+                datos.setearConsulta("select L.ID, L.Nombre, L.Direccion, L.ID_Localidad, L.Descripcion, L.ID_Categoria, L.Barrio as Barrio, Loc.Nombre as Localidad, C.Nombre as Categoria, I.ID_Imagen as ID_Imagen, I.Nombre as Imagen, I.ID as IdFood, L.Afuera as Donde from Locales L inner join Localidades Loc on L.ID_Localidad = Loc.ID_Localidad inner join Categorias C on L.ID_Categoria = C.ID_Categoria inner join Imagenes I on I.ID = L.ID");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
@@ -97,7 +97,6 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-
         public void addCook(Cooking nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -123,7 +122,30 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("insert into Locales(Nombre, Direccion,Barrio, ID_Localidad, Descripcion, ID_Categoria, Afuera)values(@nombre, @direccion,@barrio, @localidad, @descripcion, @categoria, 1)");
+                datos.setearConsulta("insert into Locales(Nombre, Direccion,Barrio , ID_Localidad, Descripcion, ID_Categoria, Afuera)values(@nombre, @direccion,@barrio, @localidad, @descripcion, @categoria, 1)");
+                datos.setearParametro("@nombre", nuevo.name);
+                datos.setearParametro("@direccion", nuevo.adress);
+                datos.setearParametro("@barrio", nuevo.barrio);
+                datos.setearParametro("@localidad", nuevo.localidad.id);
+                datos.setearParametro("@descripcion", nuevo.descripcion);
+                datos.setearParametro("@categoria", nuevo.categoria.id);
+                datos.ejecutarAcccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void addOut0(OutSide nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("insert into Locales(Nombre, Direccion,Barrio , ID_Localidad, Descripcion, ID_Categoria, Afuera)values(@nombre, @direccion,@barrio, @localidad, @descripcion, @categoria, 0)");
                 datos.setearParametro("@nombre", nuevo.name);
                 datos.setearParametro("@direccion", nuevo.adress);
                 datos.setearParametro("@barrio", nuevo.barrio);
@@ -147,8 +169,8 @@ namespace negocio
             try
             {
                 datos.setearConsulta("insert into Imagenes(Nombre, ID)values(@name,@id)");
-                datos.setearParametro("@id", nuevo.Id_Food);
                 datos.setearParametro("@name", nuevo.name);              
+                datos.setearParametro("@id", nuevo.Id_Food);
                 datos.ejecutarAcccion();
             }
             catch (Exception ex)
@@ -165,7 +187,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("update Locales set Nombre = @nombre , Direccion = @direccion, Barrio = @barrio, ID_Localidad = @id_Localidad, Descripcion = @descripcion,ID_Categoria = @id_Categoria where ID_Local = @id");
+                datos.setearConsulta("update Locales set Nombre = @nombre , Direccion = @direccion, Barrio = @barrio, ID_Localidad = @id_Localidad, Descripcion = @descripcion,ID_Categoria = @id_Categoria where ID = @id");
                 datos.setearParametro("@nombre", local.name);
                 datos.setearParametro("@direccion",local.adress);
                 datos.setearParametro("@barrio", local.barrio);
@@ -211,7 +233,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("delete from Locales where ID_Local = @id");
+                datos.setearConsulta("delete from Locales where ID = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarAcccion();               
             }
@@ -229,7 +251,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {               
-                datos.setearConsulta("delete from Imagenes where ID_Food = @id");
+                datos.setearConsulta("delete from Imagenes where ID = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarAcccion();
             }
@@ -300,7 +322,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("select ID_Local as id from Locales");
+                datos.setearConsulta("select ID as id from Locales");
                 datos.ejecutarLectura();
                 int aux = new int();
 

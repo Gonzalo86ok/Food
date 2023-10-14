@@ -24,7 +24,7 @@ namespace WindowsFormsApp
         {
             cargar();
         }
-            private void cargar()
+        private void cargar()
             {
                 Negocio negocio = new Negocio();
                 listarHome = negocio.listarHome();
@@ -32,16 +32,16 @@ namespace WindowsFormsApp
                 ocultarColumnas();
                 cargarImagen(listarHome[0].imagen.name);
             }
-            private void ocultarColumnas()
+        private void ocultarColumnas()
             {
                 dgvQueComemos.Columns["id"].Visible = false;
                 dgvQueComemos.Columns["imagen"].Visible = false;
             }   
-            private void btCancelar_Click(object sender, EventArgs e)
+        private void btCancelar_Click(object sender, EventArgs e)
             {
                 this.Close();
             }
-            private void dgvDondeComemos_SelectionChanged(object sender, EventArgs e)
+        private void dgvDondeComemos_SelectionChanged(object sender, EventArgs e)
             {
                 if (dgvQueComemos.CurrentRow != null)
                 {
@@ -49,7 +49,7 @@ namespace WindowsFormsApp
                     cargarImagen(seleccionado.imagen.name);
                 }
             }
-            private void cargarImagen(string imagen)
+        private void cargarImagen(string imagen)
             {
                 try
                 {
@@ -60,13 +60,13 @@ namespace WindowsFormsApp
                     pbImagen.Load("https://i.stack.imgur.com/y9DpT.jpg");
                 }
             }
-            private void btAgregar_Click(object sender, EventArgs e)
+        private void btAgregar_Click(object sender, EventArgs e)
             {
                 Agregar alta = new Agregar();
                 alta.ShowDialog();
                 cargar();
             }
-            private void btModificar_Click(object sender, EventArgs e)
+        private void btModificar_Click(object sender, EventArgs e)
             {
                 Cooking seleccionado = (Cooking)dgvQueComemos.CurrentRow.DataBoundItem;
 
@@ -74,7 +74,7 @@ namespace WindowsFormsApp
                 modificar.ShowDialog();
                 cargar();
             }
-            private void btEliminar_Click(object sender, EventArgs e)
+        private void btEliminar_Click(object sender, EventArgs e)
             {
                 Negocio negocio = new Negocio();
                 Cooking seleccionado;
@@ -95,7 +95,7 @@ namespace WindowsFormsApp
                     MessageBox.Show(ex.ToString());
                 }
             }       
-            private void txtFiltro_TextChanged(object sender, EventArgs e)
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
             {
                 List<Cooking> listaFiltrada;
                 string filtro = txtFiltro.Text;

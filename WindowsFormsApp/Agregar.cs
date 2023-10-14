@@ -60,7 +60,6 @@ namespace WindowsFormsApp
                         imagen.name = (txtbImagen.Text);
                         negocio.modificarImagen(imagen);
                         MessageBox.Show("Modificado exitosamente");
-
                     }
                     else 
                     {
