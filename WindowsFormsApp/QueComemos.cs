@@ -36,21 +36,9 @@ namespace WindowsFormsApp
             {
                 dgvQueComemos.Columns["id"].Visible = false;
                 dgvQueComemos.Columns["imagen"].Visible = false;
-            }   
-        private void btCancelar_Click(object sender, EventArgs e)
-            {
-                this.Close();
-            }
-        private void dgvDondeComemos_SelectionChanged(object sender, EventArgs e)
-            {
-                if (dgvQueComemos.CurrentRow != null)
-                {
-                    Cooking seleccionado = (Cooking)dgvQueComemos.CurrentRow.DataBoundItem;
-                    cargarImagen(seleccionado.imagen.name);
-                }
-            }
+            }         
         private void cargarImagen(string imagen)
-            {
+        {
                 try
                 {
                     pbImagen.Load(imagen);
@@ -59,57 +47,73 @@ namespace WindowsFormsApp
                 {
                     pbImagen.Load("https://i.stack.imgur.com/y9DpT.jpg");
                 }
-            }
-        private void btAgregar_Click(object sender, EventArgs e)
-            {
-                Agregar alta = new Agregar();
-                alta.ShowDialog();
-                cargar();
-            }
-        private void btModificar_Click(object sender, EventArgs e)
+        }
+        private void dgvQueComemos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvQueComemos.CurrentRow != null)
             {
                 Cooking seleccionado = (Cooking)dgvQueComemos.CurrentRow.DataBoundItem;
-
-                AgregarCook modificar = new AgregarCook(seleccionado);
-                modificar.ShowDialog();
-                cargar();
+                cargarImagen(seleccionado.imagen.name);
             }
-        private void btEliminar_Click(object sender, EventArgs e)
-            {
-                Negocio negocio = new Negocio();
-                Cooking seleccionado;
-                try
-                {
-                    DialogResult respuesta = MessageBox.Show("Realment desea eliminar?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (respuesta == DialogResult.Yes)
-                    {
-                        seleccionado = (Cooking)dgvQueComemos.CurrentRow.DataBoundItem;
-                        negocio.eliminarImagen(seleccionado.id);
-                        negocio.eliminar(seleccionado.id);
-                        cargar();
-                    }
-                }
-                catch (Exception ex)
-                {
+        }
+        private void btAgregar_Click_1(object sender, EventArgs e)
+        {
+            Agregar alta = new Agregar();
+            alta.ShowDialog();
+            cargar();
+        }
+        private void btModificar_Click_1(object sender, EventArgs e)
+        {
+            Cooking seleccionado = (Cooking)dgvQueComemos.CurrentRow.DataBoundItem;
 
-                    MessageBox.Show(ex.ToString());
-                }
-            }       
-        private void txtFiltro_TextChanged(object sender, EventArgs e)
+            AgregarCook modificar = new AgregarCook(seleccionado);
+            modificar.ShowDialog();
+            cargar();
+        }
+        private void btDetalle_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btEliminar_Click_1(object sender, EventArgs e)
+        {
+            Negocio negocio = new Negocio();
+            Cooking seleccionado;
+            try
             {
-                List<Cooking> listaFiltrada;
-                string filtro = txtFiltro.Text;
-                if (filtro.Length > 3)
+                DialogResult respuesta = MessageBox.Show("Realment desea eliminar?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
                 {
-                    listaFiltrada = listarHome.FindAll(x => x.nombre.ToUpper().Contains(filtro.ToUpper()));
+                    seleccionado = (Cooking)dgvQueComemos.CurrentRow.DataBoundItem;
+                    negocio.eliminarImagen(seleccionado.id);
+                    negocio.eliminar(seleccionado.id);
+                    cargar();
                 }
-                else
-                {
-                    listaFiltrada = listarHome;
-                }
-                dgvQueComemos.DataSource = null;
-                dgvQueComemos.DataSource = listaFiltrada;
-                ocultarColumnas();
-            }     
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }      
+        private void txtFiltro_TextChanged_1(object sender, EventArgs e)
+        {
+            List<Cooking> listaFiltrada;
+            string filtro = txtFiltro.Text;
+            if (filtro.Length > 3)
+            {
+                listaFiltrada = listarHome.FindAll(x => x.nombre.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = listarHome;
+            }
+            dgvQueComemos.DataSource = null;
+            dgvQueComemos.DataSource = listaFiltrada;
+            ocultarColumnas();
+        }
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

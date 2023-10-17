@@ -99,6 +99,7 @@ namespace WindowsFormsApp
                 {
                     txtbNombre.Text = local.name;
                     txtbDireccion.Text = local.adress;
+                    txtBarrio.Text = local.barrio;
                     cbLocalidad.SelectedValue = local.localidad.id;
                     txtbDescripcion.Text = local.descripcion;
                     cbCategoria.SelectedValue = local.categoria.id;

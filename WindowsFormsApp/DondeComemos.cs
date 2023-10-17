@@ -112,5 +112,9 @@ namespace WindowsFormsApp
             dgvDondeComemos.DataSource = listaFiltrada;
             ocultarColumnas();
         }
+        private void btDetalle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

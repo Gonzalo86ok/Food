@@ -103,6 +103,7 @@
             this.btDetalle.TabIndex = 5;
             this.btDetalle.Text = "Detalle";
             this.btDetalle.UseVisualStyleBackColor = true;
+            this.btDetalle.Click += new System.EventHandler(this.btDetalle_Click);
             // 
             // pbImagen
             // 
@@ -118,7 +119,7 @@
             this.lbFiltroRapido.AutoSize = true;
             this.lbFiltroRapido.Location = new System.Drawing.Point(110, 26);
             this.lbFiltroRapido.Name = "lbFiltroRapido";
-            this.lbFiltroRapido.Size = new System.Drawing.Size(65, 20);
+            this.lbFiltroRapido.Size = new System.Drawing.Size(52, 16);
             this.lbFiltroRapido.TabIndex = 7;
             this.lbFiltroRapido.Text = "Buscar:";
             this.lbFiltroRapido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
